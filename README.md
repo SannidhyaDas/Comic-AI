@@ -3,7 +3,8 @@
 ![app_img_1](https://github.com/SannidhyaDas/Comic-AI/blob/main/assets/app_interface1.png)
 ![app_img_1](https://github.com/SannidhyaDas/Comic-AI/blob/main/assets/app_interface2.png)
 
-Turn any YouTube video or uploaded video into a comic strip using AI! 🎨 Transform your favorite moments into shareable comic art with just a few clicks.
+
+> Turn any YouTube video or uploaded video into a comic strip using AI! 🎨 Transform your favorite moments into shareable comic art with just a few clicks.
 ---
 ## 🌟 Features
 
@@ -33,12 +34,12 @@ Turn any YouTube video or uploaded video into a comic strip using AI! 🎨 Trans
 ---
 ## 🚀 Getting Started
 
-### Prerequisites
+### 1️⃣ Prerequisites
 - Python 3.8+
 - YouTube video URL or video file
 - API keys (see below)
 
-### Installation
+### 2️⃣ Installation
 Clone the repository
 ```bash
 git clone https://github.com/SannidhyaDas/Comic-AI.git
@@ -54,7 +55,7 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
-### Configuration
+### 3️⃣ Configuration
 
 1. Create a `.env` file in the project root:
 ```ini
@@ -66,13 +67,13 @@ OPENAI_API_KEY=your_openai_api_key_here
 - **Gemini API Key**: [Google AI Studio](https://aistudio.google.com)
 - **OpenAI API Key**: [OpenAI Platform](https://platform.openai.com)
 
-### Running the App
+### 4️⃣ Running the App
 
 Run the Streamlit app
 ```bash
 streamlit run app2.py
 ```
-Open your browser to [http://localhost:8501]
+Open your browser to [http://localhost:8501](http://localhost:8501)
 ---
 
 ## 🛠️ Technical Architecture
@@ -92,4 +93,55 @@ G --> H[User Output]
 
 ## 📦 Project Structure
 
+```bash
+Comic-AI/
+│
+├── assets/                        # Streamlit web interface
+│   ├── appInterface_1.png            # Yt video & prompt example 
+│   ├── appInterface_2.png            # generated comic example 
+│   └── generated_img1.png            # comic example 
+│
+├── v1/             # Gemini free image gen model
+│   ├── requirements.txt            # Python dependencies
+│   ├── main.py             # Core logic and LLM pipelines  
+│   ├── example1.ipynb      # example with functions of main.py 
+│   └── app.py              # Streamlit user interface
+│
+├── v2/              # paid models(OpenAI + Gemini Imagen) 
+│   ├── requirements.txt            # Python dependencies
+│   ├── main2.py             # Core logic and LLM pipelines
+│   ├── example2.ipynb      # example with functions of main2.py 
+│   └── app2.py              # Streamlit user interface
+│
+└── README.md                   # Project documentation
 
+```
+## 📌 Version Information
+
+This repository contains two versions of the application:
+
+### v1: Free Tier Implementation
+- Uses `gemini-2.0-flash-preview-image-generation` (free image generation model)
+- Limitations:
+  - Text rendering quality is inconsistent
+  - Image quality can be suboptimal
+  - Text in speech bubbles may appear blurry or garbled
+
+### v2: Premium Implementation
+- Implements a fallback strategy using paid models:
+  - Primary: OpenAI's `gpt-image-1` (superior text rendering)
+  - Fallback: Google's `imagen-4.0-generate-001` (high-quality image generation)
+- Benefits:
+  - Significantly improved text clarity
+  - Higher overall image quality
+  - More reliable comic generation
+
+The deployed version uses v1 due to the payment requirements of the premium models. However, the v2 code is fully functional - users only need to provide their own API keys and have active billing with the respective services to use the premium models.
+ 
+
+---
+## 📬 Contact
+
+Sannidhya Das - [@LinkedIn](https://www.linkedin.com/in/sannidhya-das3/) - dassannidhya003@gmail.com
+
+Project Link: [https://github.com/SannidhyaDas/Comic-AI](https://github.com/SannidhyaDas/Comic-AI)
