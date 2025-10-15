@@ -79,15 +79,21 @@ Open your browser to [http://localhost:8501](http://localhost:8501)
 ## 🛠️ Technical Architecture
 
 ```mermaid
-graph TD
-A[User Input] --> B(YouTube Video URL + Comic Description)
-B --> C{Video Analysis}
-C -->|Gemini API| D(Prompt Enhancement)
-D --> E{Comic Generation}
-E -->|Primary: OpenAI gpt-image-1| F[Comic Strip]
-E -->|Fallback: Google Imagen| F
-F --> G[Streamlit Web Interface]
-G --> H[User Output]
+---
+config:
+  look: neo
+  layout: fixed
+---
+flowchart LR
+    A["User Input"] --> B("YouTube Video URL + Comic Description")
+    B --> C{"Video Analysis"}
+    C -- Gemini API --> D("Prompt Enhancement")
+    D --> E{"Comic Generation"}
+    E -- "Primary: OpenAI gpt-image-1" --> F["Comic Strip"]
+    E -- Fallback: Google Imagen --> F
+    F --> G["Streamlit Web Interface"]
+    G --> H["User Output"]
+
 ```
 ---
 
