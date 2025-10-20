@@ -1,5 +1,7 @@
-google-genai 
+google-genai
 pillow
 python-dotenv
-streamlit
+streamlit>=1.40.0
+
+
 
